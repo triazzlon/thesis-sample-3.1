@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mock Sign Up Page</title>
+  <link rel="stylesheet" href="Test.css">
+</head>
+<body>
+  <div class="container">
+    <img src="Survey Logo.jpg" alt="Logo" class="logo">
+    <h2>Sign up to join millions of other users</h2>
+    
+    <form class="form" id="signupForm">
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+    
+    
+    <p class="disclaimer">
+      By continuing, you agree to our 
+      <a href="T&Cs.html">Terms & Conditions</a> and acknowledge that you understand the 
+      <a href="Privacy Policy.html">Privacy Policy</a>.
+    </p>
+
+    <!-- New Button -->
+    <a href="TC simp.html" class="next-button disabled" id="nextButton" onclick="return false;">Next</a>
+</form>
+  <script>
+    const fullName = document.getElementById('fullName');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+  const nextButton = document.getElementById('nextButton');
+  
+    function validateForm() {
+      const isFilled = fullName.value.trim() && username.value.trim() && password.value.trim();
+      if (isFilled) {
+        nextButton.classList.remove('disabled');
+        nextButton.onclick = null; // Enable link
+      } else {
+        nextButton.classList.add('disabled');
+        nextButton.onclick = () => false; // Disable link
+      }
+    }
+  
+    fullName.addEventListener('input', validateForm);
+    username.addEventListener('input', validateForm);
+    password.addEventListener('input', validateForm);
+  </script>
+
+  </div>
+</body>
+</html>
